@@ -1,0 +1,100 @@
+*imadesyo*	imadesyo(今でしょ!).vim	Last Change: 2013/09/09.
+
+		imadesyo.vim マニュアル
+
+Version: 1.0
+Author : yaasita < https://github.com/yaasita/imadesyo >
+
+
+1. 概要							|imadesyo-intro|
+2. コマンド						|imadesyo-command|
+3. 設定							|imadesyo-setting|
+4. 対応ファイル                                         |imadesyo-support-files|
+
+==============================================================================
+1. 概要							*imadesyo-intro*
+
+imadesyo.vimは編集中のファイルを今でしょ！のノリで素早く実行します。
+例えば、apache設定ファイル中に実行すればapacheの再起動を
+postfix編集中に実行すればpostfixの再起動をしてくれます。
+
+==============================================================================
+2. コマンド						*imadesyo-command*
+							*:Imadesyo*
+
+以下のコマンドで現在開いているファイルに合わせて実行・反映をしてくれます
+>
+	:Imadesyo
+<
+
+Note
+いくつか例をあげます
+/etc/apache2/sites-enabled/000-default編集中に実行すると
+以下のコマンドを実行
+>
+        apache2ctl configtest && service apache2 restart
+<
+_spec.rbで終わるファイルを編集中に実行すると
+以下のコマンドを実行
+>
+        rspec -c 編集中のファイル
+<
+#!/usr/bin/env ruby で始まるファイル編集中に実行すると
+以下のコマンドを実行
+>
+        /usr/bin/env ruby 編集中のファイル
+<
+
+
+==============================================================================
+3. 設定							*imadesyo-setting*
+
+設定は特に用意してないので直接 autoload/imadesyo.vimを直してください。
+ファイル名を見て実行するコマンドを決めてるだけなので誰でも編集できます。
+多分。
+
+    あと|:Imadesyo|ってコマンド打つのは面倒なので、キーマップ登録しておくと
+    便利です。
+    下記例みたいにするとノーマルモードで,eと入力すれば実行できるように
+    なります。
+>
+    nnoremap ,e :Imadesyo<CR>
+<
+
+==============================================================================
+3.対応ファイル 					*imadesyo-support-files*
+
+現在(多分)対応しているのは以下のファイルです
+
+- vimスクリプト
+- .mailfilter
+- grub
+- aliases
+- apache2
+- sources.list
+- bind9
+- isc-dhcp-server
+- fstab
+- lighttpd
+- logrotate
+- munin
+- mysql
+- nagios-nrpe-server
+- nagios3
+- nginx
+- ntp
+- postfix
+- rsyslog
+- samba
+- smartd
+- squid3
+- ssh
+- unbound
+- varnish
+- vsftpd
+- rspec
+- shebangが書かれているスクリプトファイル
+- vimのfiletype = 実行コマンドのもの(perl,ruby,expect等)
+
+==============================================================================
+vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:
