@@ -1,4 +1,4 @@
-" vim: set sw=4 et fdm=marker:
+" vim: set sw=4 et fdm=marker nowrap:
 "
 " imadesyo.vim - when do you start? IMADESYO!
 "
@@ -16,6 +16,7 @@ function! imadesyo#s:Imadesyo() abort "{{{
     let l:name = expand("%:p")
     if     (&ft  == 'vim')                               | source %
     elseif (l:name =~ '\v\.mailfilter$')                 | execute l:cmd.'maildrop -V 9 < /dev/null'
+    elseif (l:name =~ '\v\.slim$')                       | execute l:cmd.'slimrb -p '.expand("%")
     elseif (l:name =~ '\v^/etc/.*grub')                  | execute l:cmd.'update-grub'
     elseif (l:name =~ '\v^/etc/aliases$')                | execute l:cmd.'newaliases'
     elseif (l:name =~ '\v^/etc/apache2')                 | execute l:cmd.'apache2ctl configtest && service apache2 restart'
