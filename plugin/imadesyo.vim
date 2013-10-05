@@ -2,4 +2,4 @@
 "
 " imadesyo.vim calls function (autoload/imadesyo.vim)
 "
-command! Imadesyo call imadesyo#s:Imadesyo()
+command! -nargs=? Imadesyo call imadesyo#s:Imadesyo(<f-args>)
