@@ -21,7 +21,7 @@ function! imadesyo#s:Imadesyo(...) abort "{{{
 endfunction "}}}
 function! s:ReturnExecCommand() "{{{
     " command
-	if has('win32')
+	if has('win32') || has('gui_running')
 		let l:cmd = "!"
 	else
 		let l:cmd = "!clear && "
