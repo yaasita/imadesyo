@@ -4,7 +4,7 @@
 "
 " Version: 2.0
 " Maintainer:	yaasita < https://github.com/yaasita/imadesyo >
-function! imadesyo#s:Imadesyo(...) abort "{{{
+function! imadesyo#Imadesyo(...) abort "{{{
     w
     " user cmd
     if a:0 != 0
