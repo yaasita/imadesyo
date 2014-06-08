@@ -29,6 +29,7 @@ function! s:ReturnExecCommand() "{{{
     " conf detect
     let l:name = expand("%:p")
     if     (&ft  == 'vim')                               | return 'source %'
+    elseif (l:name =~ '\v\.js$')                         | return l:cmd.'node '.expand("%")
     elseif (l:name =~ '\v\.mailfilter$')                 | return l:cmd.'maildrop -V 9 < /dev/null'
     elseif (l:name =~ '\v\.slim$')                       | return l:cmd.'slimrb -p '.expand("%")
     elseif (l:name =~ '\v^/etc/.*grub')                  | return l:cmd.'update-grub'
