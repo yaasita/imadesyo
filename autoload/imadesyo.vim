@@ -32,6 +32,7 @@ function! s:ReturnExecCommand() "{{{
     elseif (l:name =~ '\v\.js$')                         | return l:cmd.'node '.expand("%")
     elseif (l:name =~ '\v\.mailfilter$')                 | return l:cmd.'maildrop -V 9 < /dev/null'
     elseif (l:name =~ '\v\.slim$')                       | return l:cmd.'slimrb -p '.expand("%")
+    elseif (l:name =~ '\v\.t$')                          | return l:cmd.'prove '.expand("%")
     elseif (l:name =~ '\v^/etc/.*grub')                  | return l:cmd.'update-grub'
     elseif (l:name =~ '\v^/etc/aliases$')                | return l:cmd.'newaliases'
     elseif (l:name =~ '\v^/etc/apache2')                 | return l:cmd.'apache2ctl configtest && service apache2 restart'
