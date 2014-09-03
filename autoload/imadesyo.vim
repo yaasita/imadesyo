@@ -45,6 +45,7 @@ function! s:ReturnExecCommand() "{{{
     elseif (l:name =~ '\v^/etc/fstab')                   | return l:cmd.'mount -a'
     elseif (l:name =~ '\v^/etc/lighttpd')                | return l:cmd.'lighttpd -t -f '.l:name.' && service lighttpd restart'
     elseif (l:name =~ '\v^/etc/logrotate')               | return l:cmd.'logrotate -vf '.l:name
+    elseif (l:name =~ '\v^/etc/mailman')                 | return l:cmd.'service mailman restart'
     elseif (l:name =~ '\v^/etc/munin')                   | return l:cmd.'service munin-node restart'
     elseif (l:name =~ '\v^/etc/mysql')                   | return l:cmd.'mysqld --help && service mysql restart'
     elseif (l:name =~ '\v^/etc/nagios/')                 | return l:cmd.'service nagios-nrpe-server restart'
