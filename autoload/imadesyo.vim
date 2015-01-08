@@ -38,6 +38,7 @@ function! s:ReturnExecCommand() "{{{
     elseif (l:name =~ '\v^/etc/apt-cacher-ng')           | return l:cmd.'service apt-cacher-ng restart'
     elseif (l:name =~ '\v^/etc/apt/sources.list')        | return l:cmd.'apt-get update'
     elseif (l:name =~ '\v^/etc/bind')                    | return l:cmd.'named-checkconf && service bind9 reload'
+    elseif (l:name =~ '\v^/etc/chrony/')                 | return l:cmd.'service chrony restart'
     elseif (l:name =~ '\v^/etc/default/isc-dhcp-server') | return l:cmd.'dhcpd -t && service isc-dhcp-server restart'
     elseif (l:name =~ '\v^/etc/dhcp/dhcpd.conf')         | return l:cmd.'dhcpd -t && service isc-dhcp-server restart'
     elseif (l:name =~ '\v^/etc/dovecot')                 | return l:cmd.'dovecot -a && service dovecot restart'
