@@ -70,6 +70,8 @@ function! s:ReturnExecCommand() "{{{
         return l:cmd.matchstr(l:first_line,'\v^#!\zs.+').' '.expand("%")
     elseif (&ft == 'make')
         return l:cmd."make -f".' '.expand("%")
+    elseif (&ft == 'go')
+        return l:cmd."go run ".expand("%")
     else
         return l:cmd.&ft.' '.expand("%")
     endif
