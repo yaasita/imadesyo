@@ -67,12 +67,12 @@ function! s:ReturnExecCommand() "{{{
     " file type detect
     let l:first_line=getline(1)
     if l:first_line =~ '\v^#!'
-        return l:cmd.matchstr(l:first_line,'\v^#!\zs.+').' '.expand("%")
+        return l:cmd.matchstr(l:first_line,'\v^#!\zs.+').' '.l:name
     elseif (&ft == 'make')
-        return l:cmd."make -f".' '.expand("%")
+        return l:cmd."make -f".' '.l:name
     elseif (&ft == 'go')
-        return l:cmd."go run ".expand("%")
+        return l:cmd."go run ".l:name
     else
-        return l:cmd.&ft.' '.expand("%")
+        return l:cmd.&ft.' '.l:name
     endif
 endfunction "}}}
